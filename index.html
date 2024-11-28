@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lichtershow Fanprojekt</title>
     <style>
-        /* Allgemeine Formatierung */
         body {
             margin: 0;
             height: 100vh;
@@ -16,10 +15,9 @@
             font-family: Arial, sans-serif;
             background-color: black;
             color: white;
-            transition: background-color 1s ease; /* Übergang für Farbwechsel auf 1 Sekunde */
+            transition: background-color 1s ease;
         }
 
-        /* Startseite Formatierung */
         .start-page {
             text-align: center;
             font-size: 20px;
@@ -38,7 +36,6 @@
             margin: 10px 0;
         }
 
-        /* Start Button */
         button {
             padding: 10px 20px;
             font-size: 18px;
@@ -57,3 +54,34 @@
 </head>
 <body>
     <div id="startPage" class="start-page">
+        <h1>Hallo liebe Cro-Fans!</h1>
+        <p>Wir machen ein Fanprojekt bei dem Song "<span class="highlight">Ein Teil</span>".</p>
+        <p>Um mitzumachen, musst du nur auf "Start" drücken und dein Handy hochhalten.</p>
+        <p>Falls es Fragen gibt, dann schreib uns auf Instagram:</p>
+        <p><strong>mayya.vok / julia_ltwd</strong></p>
+        <p>Es wäre super, wenn alle mitmachen!</p>
+        <button id="startButton">Start</button>
+    </div>
+
+    <script>
+        // Funktion für den Start-Button
+        document.getElementById("startButton").addEventListener("click", function() {
+            document.getElementById("startPage").style.display = "none";  // Verstecke die Startseite
+            startLightShow();  // Starte die Lichtshow
+        });
+
+        // Funktion für die Lichtshow
+        function startLightShow() {
+            let colors = ["orange", "#FFD700"]; // Farben: Orange und Sonnengelb
+            let body = document.body;
+
+            // Unendlicher Farbwechsel mit Übergang
+            let currentColorIndex = 0;
+            setInterval(function() {
+                body.style.backgroundColor = colors[currentColorIndex % colors.length];
+                currentColorIndex++;
+            }, 1000);  // Wechselt die Farbe alle 1 Sekunde
+        }
+    </script>
+</body>
+</html>
