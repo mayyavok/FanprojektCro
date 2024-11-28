@@ -77,17 +77,12 @@
             // Sofortige Farbe nach dem Start
             body.style.backgroundColor = colors[0]; // Setzt sofort die erste Farbe (orange)
 
-            // Wechseln zwischen den Farben mit kurzem Delay
-            setTimeout(function() {
-                let i = 0;
-                let interval = setInterval(function() {
-                    body.style.backgroundColor = colors[i % colors.length];
-                    i++;
-                    if (i >= 10) {  // Nach 10 Wechseln stoppen
-                        clearInterval(interval);
-                    }
-                }, 500);  // 0.5 Sekunde für den Farbwechsel (schneller als vorher)
-            }, 500);  // Warte 0.5 Sekunden, bevor die Lichtshow startet
+            // Unendlicher Farbwechsel
+            setInterval(function() {
+                // Wechselt ständig zwischen den Farben orange und gelb
+                let currentColor = body.style.backgroundColor;
+                body.style.backgroundColor = currentColor === "rgb(255, 165, 0)" ? "yellow" : "orange";
+            }, 500);  // 0.5 Sekunde für den Farbwechsel (schneller als vorher)
         }
     </script>
 </body>
